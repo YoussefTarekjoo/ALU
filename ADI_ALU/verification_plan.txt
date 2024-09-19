@@ -1,0 +1,46 @@
+Signals
+1- RST -> Asynchronous active low "All outputs signals must be zero".
+2- 4 bits input A , B that takes a valid inputs (MAXPOS=7 , MAXNEG=-8 , ZERO=0 , Any other value)
+3- Opcode -> Opcode takes possible 4 values [ADD , SUB , MULT , DIV] and depends on the value of the Opcode Alu_out take a value.
+4- Alu_out -> depends on the value of Opcode , it takes a value.
+5- C -> Works with posedge clk 
+        Checker if reset asserted -> C <= 0 
+        Checker if reset deasserted -> C <= Alu_out 
+
+
+Test Senarios
+1- When the reset is asserted the output C value must be zero
+--Goal Testing reset Functionality
+
+2- Verifiying maximum negative value on A and maximum negative value on B in case Opcode (ADD)
+Verifiying maximum negative value on A and maximum Positive value on B in case Opcode (ADD)
+Verifiying maximum Positive value on A and maximum negative value on B in case Opcode (ADD)
+Verifiying maximum Positive value on A and maximum Positive value on B in case Opcode (ADD)
+Verifiying ZERO value on A and maximum Positive value on B in case Opcode (ADD)
+--method : By using constrained randomization 
+--Goal : Testing diffrent Senarios on Addition Functionality
+
+3- Verifiying maximum negative value on A and maximum negative value on B in case Opcode (SUB)
+Verifiying maximum negative value on A and maximum Positive value on B in case Opcode (SUB)
+Verifiying maximum Positive value on A and maximum negative value on B in case Opcode (SUB)
+Verifiying maximum Positive value on A and maximum Positive value on B in case Opcode (SUB)
+Verifiying ZERO value on A and maximum Positive value on B in case Opcode (SUB)
+--method : By using constrained randomization 
+--Goal Testing diffrent Senarios on Subtraction Functionality
+
+4- Verifiying maximum negative value on A and maximum negative value on B in case Opcode (MULT)
+Verifiying maximum negative value on A and maximum Positive value on B in case Opcode (MULT)
+Verifiying maximum Positive value on A and maximum negative value on B in case Opcode (MULT)
+Verifiying maximum Positive value on A and maximum Positive value on B in case Opcode (MULT)
+Verifiying maximum Positive value on A and ZERO value on B in case Opcode (MULT)
+--method : By using constrained randomization 
+--Goal Testing diffrent Senarios on Multiplication Functionality
+
+5- Verifiying maximum negative value on A and maximum negative value on B in case Opcode (DIV)
+Verifiying maximum negative value on A and maximum Positive value on B in case Opcode (DIV)
+Verifiying maximum Positive value on A and maximum negative value on B in case Opcode (DIV)
+Verifiying maximum Positive value on A and maximum Positive value on B in case Opcode (DIV)
+Verifiying ZERO value on A and maximum Positive value on B in case Opcode (DIV)
+Verifiying maximum negative value on A and ZERO value on B in case Opcode (DIV)
+--method : By using constrained randomization 
+--Goal Testing diffrent Senarios on Division Functionality
